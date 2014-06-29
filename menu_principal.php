@@ -14,11 +14,11 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Empresa</a></li>
-                <li><a href="#">Produtos</a></li>
-                <li><a href="#">Serviços</a></li>
-                <li><a href="#">Contato</a></li>
+                <li class="active"><a href="/?p=home">Home</a></li>
+                <li><a href="/?p=empresa">Empresa</a></li>
+                <li><a href="/?p=produtos">Produtos</a></li>
+                <li><a href="/?p=servicos">Serviços</a></li>
+                <li><a href="/?p=contato">Contato</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
