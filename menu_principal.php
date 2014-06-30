@@ -14,7 +14,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/?p=home">Home</a></li>
+                <li><a href="/?p=home">Home</a></li>
                 <li><a href="/?p=empresa">Empresa</a></li>
                 <li><a href="/?p=produtos">Produtos</a></li>
                 <li><a href="/?p=servicos">Serviços</a></li>

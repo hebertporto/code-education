@@ -13,14 +13,22 @@
         </header>
         <section id="main-content">
             <?php
-             if(isset($_GET))
-                require_once($_GET['p'] . ".php");
-             else
+            $url = array('contato','empresa','home','produtos','servicos');
+             if(isset($_GET['p']))
+             {
+                 if(in_array($_GET['p'],$url))
+                    require_once($_GET['p'] . ".php");
+                 else
+                 {
+                     echo "<h1 class='text-center'> Error. Url não encontrada. </h1>";
+                 }
+             }
+            else
                 require_once('home.php');
             ?>
         </section>
         <div class="clearfix"></div>
-        <footer id="footer" class="panel-footer text-center">
+        <footer  class="text-center navbar navbar-fixed-bottom">
             <p>
                 Todos os Direitos Reservados <?php echo date('Y'); ?>
             </p>
