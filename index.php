@@ -1,4 +1,25 @@
-<?php date_default_timezone_set('America/Sao_Paulo'); ?>
+<?php
+date_default_timezone_set('America/Sao_Paulo');
+
+$rota = parse_url("http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+$url_final = substr($rota["path"], 1);
+$urls = array('contato','empresa','home','produtos','servicos');
+$r = function ($url) use ($urls)
+        {
+            if(in_array($url ,$urls))
+            {
+                return require_once($url . '.php');
+            }
+            else
+            {
+                header('HTTP/1.0 404 Not Found');
+                echo "<h1>404 Not Found</h1>";
+                echo "Sorry. A página solicitada não foi encontrada.";
+                exit();
+            }
+        }
+?>
+
 <!DOCTYPE HTML>
     <html lang="pt-br">
         <head>
@@ -13,18 +34,9 @@
         </header>
         <section id="main-content">
             <?php
-            $url = array('contato','empresa','home','produtos','servicos');
-             if(isset($_GET['p']))
-             {
-                 if(in_array($_GET['p'],$url))
-                    require_once($_GET['p'] . ".php");
-                 else
-                 {
-                     echo "<h1 class='text-center'> Error. Url não encontrada. </h1>";
-                 }
-             }
-            else
-                require_once('home.php');
+
+            $r($url_final);
+
             ?>
         </section>
         <div class="clearfix"></div>

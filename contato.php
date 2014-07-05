@@ -1,8 +1,8 @@
 <h3>Formulário de Contato</h3>
 <?php if(!isset($_GET['inputNome'])) { ?>
 <div class="col-lg-5">
-    <form  method="get" action="">
-        <input type="hidden" name="p" value="contato">
+    <form  method="get" action="contato">
+
         <div class="form-group">
             <label for="inputNome">Nome:</label>
             <input type="text" class="form-control" id="inputNome" name="inputNome" placeholder="Nome">
