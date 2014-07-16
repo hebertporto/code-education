@@ -1,14 +1,30 @@
 <?php
 date_default_timezone_set('America/Sao_Paulo');
+require_once("conexao.php");
 
 $rota = parse_url("http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
 $url_final = substr($rota["path"], 1);
-$urls = array('contato','empresa','home','produtos','servicos');
-$r = function ($url) use ($urls)
+
+if($url_final =='') # Traz a página Home ao acessar pela primeira vez.
+    $url_final = 'home';
+
+$urls = array('contato','empresa','home','produtos','servicos', 'conexao');
+
+$sql = 'SELECT * FROM paginas';
+$stmt = $conexao->prepare($sql);
+$stmt->execute();
+
+$res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$r = function ($url) use ($urls, $res)
         {
             if(in_array($url ,$urls))
             {
-                return require_once($url . '.php');
+                foreach($res as $r)
+                {
+                 if($r['titulo'] === $url)
+                     echo $r['conteudo'];
+                }
             }
             else
             {
