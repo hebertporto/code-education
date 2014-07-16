@@ -1,5 +1,5 @@
 # Projeto Code-Education
 
-## Etapa 1
+## Etapa 3
 
- Site Inicial
+ Conteúdo em Banco de Dados
