@@ -20,6 +20,12 @@
                 <li><a href="/servicos">Serviços</a></li>
                 <li><a href="/contato">Contato</a></li>
             </ul>
+            <form class="navbar-form navbar-right" role="search" action="pesquisar" method="post">
+                <div class="form-group">
+                    <input type="text" name="pesquisa" class="form-control" placeholder="Pesquisar">
+                </div>
+                <button type="submit" class="btn btn-default">Enviar</button>
+            </form>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
