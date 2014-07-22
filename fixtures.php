@@ -8,6 +8,12 @@ require_once('conexao.php');
  * conteudo: text
  */
 
+#Criar Tabela se não existe
+
+$sql = "CREATE TABLE IF NOT EXISTS pagina (id INT NOT NULL AUTO_INCREMENT,  titulo VARCHAR(45) NOT NULL, conteudo TEXT NOT NULL, PRIMARY KEY (id))";
+$stmt = $conexao->prepare($sql);
+$stmt->execute();
+
 # Resetar a Tabela
 $sql = "TRUNCATE TABLE pagina";
 $stmt = $conexao->prepare($sql);
