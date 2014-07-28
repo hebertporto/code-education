@@ -38,3 +38,11 @@ $stmt->execute();
 $sql = "INSERT INTO pagina(titulo, conteudo) VALUES ('servicos', '<h1>Serviços</h1> Esse é o conteúdo, bla bla bla bla')";
 $stmt = $conexao->prepare($sql);
 $stmt->execute();
+
+/**
+ * Tabela: Pagina
+ * id: int
+ * titulo: varchar
+ * conteudo: text
+ */
+
