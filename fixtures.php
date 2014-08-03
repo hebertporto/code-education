@@ -40,9 +40,27 @@ $stmt = $conexao->prepare($sql);
 $stmt->execute();
 
 /**
- * Tabela: Pagina
+ * Tabela: usuario
  * id: int
- * titulo: varchar
- * conteudo: text
+ * login: varchar
+ * senha: varchar
  */
 
+ $sql = "CREATE TABLE IF NOT EXISTS usuario (
+id int(10) unsigned NOT NULL AUTO_INCREMENT,
+  login varchar(12) NOT NULL,
+  senha varchar(256) NOT NULL,
+  PRIMARY KEY (id)
+)";
+
+# Resetar a Tabela
+$sql = "TRUNCATE TABLE usuario";
+$stmt = $conexao->prepare($sql);
+$stmt->execute();
+
+# Cadastrando Usuario
+
+$senha = password_hash('admin', PASSWORD_DEFAULT);
+$sql = "INSERT INTO usuario(login, senha) VALUES ('admin', '$senha')";
+$stmt = $conexao->prepare($sql);
+$stmt->execute();
