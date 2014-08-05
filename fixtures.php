@@ -46,12 +46,9 @@ $stmt->execute();
  * senha: varchar
  */
 
- $sql = "CREATE TABLE IF NOT EXISTS usuario (
-id int(10) unsigned NOT NULL AUTO_INCREMENT,
-  login varchar(12) NOT NULL,
-  senha varchar(256) NOT NULL,
-  PRIMARY KEY (id)
-)";
+ $sql = "CREATE TABLE IF NOT EXISTS usuario (id int(10) unsigned NOT NULL AUTO_INCREMENT,  login varchar(12) NOT NULL,  senha varchar(256) NOT NULL,  PRIMARY KEY (id))";
+ $stmt = $conexao->prepare($sql);
+ $stmt->execute();
 
 # Resetar a Tabela
 $sql = "TRUNCATE TABLE usuario";

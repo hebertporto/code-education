@@ -1,5 +1,9 @@
 <?php
-session_start();
+
+if(session_id() == '' || !isset($_SESSION)) {
+    // Evita erro ao duplicar a session
+    session_start();
+}
 
 include('conexao.php');
 
